@@ -8,12 +8,10 @@ import { SearchTransactionComponent } from './search-transaction/search-transact
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'search', component: SearchTransactionComponent },
-  { path: 'funds-transfer', component: FundsTransferComponent },
   { path: '**', component: PagenotfoundComponent },
 ];
 

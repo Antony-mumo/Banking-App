@@ -24,7 +24,7 @@ export class LoginComponent {
       password: this.password
     };
 
-    const apiUrl = 'https://localhost:8080/auth/login'; // Replace with your login API endpoint
+    const apiUrl = 'https://localhost:8080/auth/login';
 
     this.http.post<ApiResponse>(apiUrl, formData).subscribe(
       (response) => {

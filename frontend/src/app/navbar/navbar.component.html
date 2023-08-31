@@ -1,21 +1,7 @@
-<!-- <nav>
-  <mat-toolbar color="">
-    <mat-toolbar-row>
-      <span>My App</span>
-      <button
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with menu icon"
-      >
-        <mat-icon>menu</mat-icon>
-      </button>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</nav>
--->
-
-<nav class="bg-blue-500 p-4">
-  <a routerLink="/home" routerActiveLink="/" class="text-white">Home</a>
-  <a routerLink="/login" class="text-white ml-4">Login</a>
-  <a routerLink="/signup" class="text-white ml-4">Signup</a>
+<nav class="bg-blue-500 p-4 flex justify-between">
+  <a routerLink="/home" routerLinkActive="active-link" class="text-white">Home</a>
+  <div>
+    <a routerLink="/login" routerLinkActive="active-link" class="text-white ml-4">Login</a>
+    <a routerLink="/signup" routerLinkActive="active-link" class="text-white ml-4">Signup</a>
+  </div>
 </nav>
