@@ -1,4 +1,32 @@
 <div class="flex flex-col items-center justify-center h-screen">
   <h2 class="text-2xl font-bold mb-4">Signup</h2>
-  <!-- Your signup form here -->
+  <!-- Signup Form -->
+  <form (submit)="submitForm()">
+    <!-- First Name Input -->
+    <div class="mb-3">
+      <label for="firstName" class="block text-sm font-medium mb-1">First Name</label>
+      <input type="text" id="firstName" name="firstName" class="border rounded-md px-3 py-2 w-full" required>
+    </div>
+
+    <!-- Last Name Input -->
+    <div class="mb-3">
+      <label for="lastName" class="block text-sm font-medium mb-1">Last Name</label>
+      <input type="text" id="lastName" name="lastName" class="border rounded-md px-3 py-2 w-full" required>
+    </div>
+
+    <!-- Customer ID Input -->
+    <div class="mb-3">
+      <label for="customerId" class="block text-sm font-medium mb-1">Customer ID</label>
+      <input type="text" id="customerId" name="customerId" class="border rounded-md px-3 py-2 w-full" required>
+    </div>
+
+    <!-- PIN Input -->
+    <div class="mb-3">
+      <label for="pin" class="block text-sm font-medium mb-1">PIN</label>
+      <input type="password" id="pin" name="pin" class="border rounded-md px-3 py-2 w-full" required>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Sign Up</button>
+  </form>
 </div>

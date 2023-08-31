@@ -1,7 +1,62 @@
 <div class="p-4">
   <h2 class="text-2xl font-bold mb-4">Customer Dashboard</h2>
+
   <!-- Customer balance UI -->
+  <div class="mb-4">
+    <h3 class="text-lg font-semibold mb-2">Account Balance</h3>
+    <p>Your current account balance: ${{ customerBalance }}</p>
+  </div>
+
   <!-- Customer mini statement UI -->
-  <!-- Cash deposit, withdrawal, funds transfer forms -->
-  <!-- Transaction search form -->
-</div>
+  <div class="mb-4">
+    <h3 class="text-lg font-semibold mb-2">Mini Statement</h3>
+    <ul>
+      <li *ngFor="let transaction of miniStatement">
+        Transaction {{ transaction.id }}:
+        {{ transaction.amount >= 0 ? '+' : '-' }}${{ transaction.amount | number:'1.2-2' }} ({{ transaction.type }})
+      </li>
+    </ul>
+  </div>
+
+    <!-- Cash deposit form -->
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold mb-2">Cash Deposit</h3>
+      <form (submit)="performCashDeposit(depositAmount.valueAsNumber); depositAmount.value=''; $event.preventDefault()">
+        <label for="depositAmount" class="block mb-1">Amount:</label>
+        <input type="number" #depositAmount id="depositAmount" name="depositAmount" class="border rounded-md px-3 py-2 w-full" required>
+        <button type="submit" class="bg-green-500 text-white px-4 py-2 mt-2 rounded-md">Deposit</button>
+      </form>
+    </div>
+
+    <!-- Cash withdrawal form -->
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold mb-2">Cash Withdrawal</h3>
+      <form (submit)="performCashWithdrawal(withdrawalAmount.valueAsNumber); withdrawalAmount.value=''; $event.preventDefault()">
+        <label for="withdrawalAmount" class="block mb-1">Amount:</label>
+        <input type="number" #withdrawalAmount id="withdrawalAmount" name="withdrawalAmount" class="border rounded-md px-3 py-2 w-full" required>
+        <button type="submit" class="bg-red-500 text-white px-4 py-2 mt-2 rounded-md">Withdraw</button>
+      </form>
+    </div>
+
+    <!-- Funds transfer form -->
+    <div class="mb-4">
+      <h3 class="text-lg font-semibold mb-2">Funds Transfer</h3>
+      <form (submit)="performFundsTransfer(recipientAccount.value, transferAmount.valueAsNumber); recipientAccount.value=''; transferAmount.value=''; $event.preventDefault()">
+        <label for="recipientAccount" class="block mb-1">Recipient Account:</label>
+        <input type="text" #recipientAccount id="recipientAccount" name="recipientAccount" class="border rounded-md px-3 py-2 w-full" required>
+        <label for="transferAmount" class="block mt-2 mb-1">Amount:</label>
+        <input type="number" #transferAmount id="transferAmount" name="transferAmount" class="border rounded-md px-3 py-2 w-full" required>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 mt-2 rounded-md">Transfer</button>
+      </form>
+    </div>
+
+    <!-- Transaction search form -->
+    <div>
+      <h3 class="text-lg font-semibold mb-2">Search Transactions</h3>
+      <form (submit)="searchTransactions(transactionSearch.value); transactionSearch.value=''; $event.preventDefault()">
+        <label for="transactionSearch" class="block mb-1">Search Keyword:</label>
+        <input type="text" #transactionSearch id="transactionSearch" name="transactionSearch" class="border rounded-md px-3 py-2 w-full" required>
+        <button type="submit" class="bg-gray-500 text-white px-4 py-2 mt-2 rounded-md">Search</button>
+      </form>
+    </div>
+  </div>
